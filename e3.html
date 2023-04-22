@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arithmetic Calculator</title>
+</head>
+<body>
+  <h1>Arithmetic Calculator</h1>
+
+  <label for="num1">Enter the first number:</label>
+  <input type="number" id="num1"><br>
+
+  <label for="num2">Enter the second number:</label>
+  <input type="number" id="num2"><br>
+
+  <button id="add">Add</button>
+  <button id="subtract">Subtract</button>
+  <button id="multiply">Multiply</button>
+  <button id="divide">Divide</button>
+
+  <p id="result"></p>
+
+  <script>
+    // get references to the HTML elements
+    var num1Input = document.getElementById("num1");
+    var num2Input = document.getElementById("num2");
+    var addButton = document.getElementById("add");
+    var subtractButton = document.getElementById("subtract");
+    var multiplyButton = document.getElementById("multiply");
+    var divideButton = document.getElementById("divide");
+    var resultText = document.getElementById("result");
+
+    // add event listeners to the buttons
+    addButton.addEventListener("click", function() {
+      var num1 = parseFloat(num1Input.value);
+      var num2 = parseFloat(num2Input.value);
+      var sum = num1 + num2;
+      resultText.textContent = "The sum of " + num1 + " and " + num2 + " is " + sum + ".";
+    });
+
+    subtractButton.addEventListener("click", function() {
+      var num1 = parseFloat(num1Input.value);
+      var num2 = parseFloat(num2Input.value);
+      var diff = num1 - num2;
+      resultText.textContent = "The difference between " + num1 + " and " + num2 + " is " + diff + ".";
+    });
+
+    multiplyButton.addEventListener("click", function() {
+      var num1 = parseFloat(num1Input.value);
+      var num2 = parseFloat(num2Input.value);
+      var prod = num1 * num2;
+      resultText.textContent = "The product of " + num1 + " and " + num2 + " is " + prod + ".";
+    });
+
+    divideButton.addEventListener("click", function() {
+      var num1 = parseFloat(num1Input.value);
+      var num2 = parseFloat(num2Input.value);
+      var quot = num1 / num2;
+      resultText.textContent = "The quotient of " + num1 + " and " + num2 + " is " + quot + ".";
+    });
+  </script>
+</body>
+</html>
