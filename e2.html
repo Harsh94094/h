@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Interest Calculator</title>
+</head>
+<body>
+  <h1>Simple Interest Calculator</h1>
+
+  <script>
+    // prompt the user for input values
+    var amount = parseFloat(prompt("Enter the principal amount:"));
+    var rate = parseFloat(prompt("Enter the interest rate (as a percentage):"));
+    var years = parseFloat(prompt("Enter the number of years:"));
+
+    // calculate the simple interest
+    var interest = (amount * rate * years) / 100;
+
+    // display the result on the page
+    document.write("<p>The simple interest on a principal amount of " + amount + " at a rate of " + rate + "% per year for " + years + " years is " + interest + ".</p>");
+  </script>
+</body>
+</html>
