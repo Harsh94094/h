@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <script>
+      const calculator = {
+        num1: 0,
+        num2: 0,
+        add: function() {
+          return this.num1 + this.num2;
+        },
+        sub: function() {
+          return this.num1 - this.num2;
+        },
+        mul: function() {
+          return this.num1 * this.num2;
+        },
+        div: function() {
+          if (this.num2 !== 0) {
+            return this.num1 / this.num2;
+          } else {
+            return "Error: Cannot divide by zero";
+          }
+        },
+        display: function() {
+          const addResult = this.add();
+          const subResult = this.sub();
+          const mulResult = this.mul();
+          const divResult = this.div();
+          
+          const resultElement = document.getElementById("result");
+          resultElement.innerHTML = `
+            <p>Result of addition: ${addResult}</p>
+            <p>Result of subtraction: ${subResult}</p>
+            <p>Result of multiplication: ${mulResult}</p>
+            <p>Result of division: ${divResult}</p>
+          `;
+        }
+      };
+      
+      function handleSubmit(event) {
+        event.preventDefault();
+        
+        const num1 = Number(document.getElementById("num1").value);
+        const num2 = Number(document.getElementById("num2").value);
+        
+        calculator.num1 = num1;
+        calculator.num2 = num2;
+        
+        calculator.display();
+      }
+    </script>
+  </head>
+  
+  <body>
+    <h1>Calculator</h1>
+    
+    <form onsubmit="handleSubmit(event)">
+      <label for="num1">Number 1:</label>
+      <input type="number" id="num1" required>
+      
+      <label for="num2">Number 2:</label>
+      <input type="number" id="num2" required>
+      
+      <button type="submit">Calculate</button>
+    </form>
+    
+    <div id="result"></div>
+  </body>
+</html>
