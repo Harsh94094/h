@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Room Volume Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Room Volume Calculator</h1>
+    <form onsubmit="return calculateVolume();">
+      <div class="form-group">
+        <label for="height">Height (in meters):</label>
+        <input type="number" class="form-control" id="height" required>
+      </div>
+      <div class="form-group">
+        <label for="width">Width (in meters):</label>
+        <input type="number" class="form-control" id="width" required>
+      </div>
+      <div class="form-group">
+        <label for="length">Length (in meters):</label>
+        <input type="number" class="form-control" id="length" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Calculate</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateVolume() {
+      // get references to the input elements
+      var heightInput = document.getElementById("height");
+      var widthInput = document.getElementById("width");
+      var lengthInput = document.getElementById("length");
+
+      // get the values of the input elements
+      var height = parseFloat(heightInput.value);
+      var width = parseFloat(widthInput.value);
+      var length = parseFloat(lengthInput.value);
+
+      // check if the values are valid
+      if (isNaN(height) || isNaN(width) || isNaN(length) || height <= 0 || width <= 0 || length <= 0) {
+        // display an error message
+        var resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = '<div class="alert alert-danger" role="alert">Please enter valid values for height, width, and length.</div>';
+        // prevent the form from submitting
+        return false;
+      }
+
+      // calculate the volume of the room
+      var volume = height * width * length;
+
+      // display the result
+      var resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = '<div class="alert alert-success" role="alert">The volume of the room is ' + volume + ' cubic meters.</div>';
+
+      // prevent the form from submitting
+      return false;
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+          integrity="sha384-HO7V1Jm8m+7VjKoOQv5IoKjZ8L6djvg5YzmLebXzX+zFlxKl6zLP+k6Dl1vKjW6M"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+          integrity="sha384-FYpNvRdGSyW8o6cMQrL0ijdc/w2OT5jZFnCzkmmB5ueuwLeFvzXfbrWpSwfc1kM6"
+          crossorigin="anonymous"></script
